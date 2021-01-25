@@ -20,6 +20,7 @@
   "rules": {
     "prettier/prettier": "error",
     "require-jsdoc": ["error"],
-    "valid-jsdoc": ["error"]
+    "valid-jsdoc": ["error"],
+    "react/prop-types": "off"
   }
 }
