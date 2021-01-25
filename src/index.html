@@ -22,7 +22,9 @@
         provider: {},
         targetId: "player",
         plugins: {
-            blinkingWatermark: {}
+            blinkingWatermark: {
+                showEvery: 5
+            }
         }
     };
     var player = KalturaPlayer.setup(config);

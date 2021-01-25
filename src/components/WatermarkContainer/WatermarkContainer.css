@@ -1,4 +1,33 @@
 .container {
     pointer-events: none;
     position: absolute;
+    font-size: 13px;
+    padding: 5px;
+    color: #FFF;
+    text-shadow: 2px 2px 4px #000;
+}
+
+.position1 {
+    bottom: 60px;
+    right: 0;
+}
+.position2 {
+    bottom: 60px;
+    left: 0;
+}
+.position3 {
+    bottom: 50%;
+    right: 0;
+}
+.position4 {
+    bottom: 50%;
+    left: 0;
+}
+.position5 {
+    top: 30px;
+    left: 0;
+}
+.position6 {
+    top: 30px;
+    right: 0;
 }
