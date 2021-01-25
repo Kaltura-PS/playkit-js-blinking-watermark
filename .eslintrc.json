@@ -1,0 +1,25 @@
+{
+  "parser": "babel-eslint",
+  "extends": ["eslint:recommended", "plugin:react/recommended"],
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "plugins": ["prettier", "import", "react"],
+  "env": {
+    "browser": true,
+    "es6": true,
+    "amd": true,
+    "commonjs": true
+  },
+  "globals": {
+    "__VERSION__": true,
+    "__NAME__": true,
+    "process": true,
+    "__dirname": true
+  },
+  "rules": {
+    "prettier/prettier": "error",
+    "require-jsdoc": ["error"],
+    "valid-jsdoc": ["error"]
+  }
+}
