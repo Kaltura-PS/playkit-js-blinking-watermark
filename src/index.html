@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Blinking Watermark Test Page</title>
+  <script src="https://cdnapisec.kaltura.com/p/1974541/embedPlaykitJs/uiconf_id/43419951"></script>
+  <script src="./playkit-blinking-watermark.js"></script>
+</head>
+<body>
+<div id="player" style="width: 800px; height: 450px;"></div>
+<script>
+    var config = {
+        logLevel: "DEBUG",
+        sources: {
+            progressive: [
+                {
+                    mimetype: "video/mp4",
+                    url: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+                }
+            ]
+        },
+        provider: {},
+        targetId: "player",
+        plugins: {
+            blinkingWatermark: {}
+        }
+    };
+    var player = KalturaPlayer.setup(config);
+</script>
+</body>
+</html>
