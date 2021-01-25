@@ -23,5 +23,25 @@
   },
   "peerDependencies": {
     "kaltura-player-js": "https://github.com/kaltura/kaltura-player-js.git#v1.0.0"
+  },
+  "keywords": [
+    "watermark",
+    "kaltura",
+    "player",
+    "playkit-js",
+    "playkit-js-blinking-watermark",
+    "html5 player"
+  ],
+  "license": "AGPL-3.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kaltura/playkit-js-blinking-watermark.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kaltura/playkit-js-blinking-watermark/issues"
+  },
+  "homepage": "https://github.com/kaltura/playkit-js-blinking-watermark#readme",
+  "kcc": {
+    "name": "playkit-blinking-watermark"
   }
 }
