@@ -16,7 +16,7 @@ export class Watermark extends BasePlugin {
     return [
       {
         label: 'blinkingWatermarkContainerComponent',
-        presets: ['Playback', 'Live', 'Error', 'Ads'],
+                                      presets: ['Playback', 'Live', 'Error', 'Ads', 'Idle'],
         container: 'InteractiveArea',
         get: WatermarkContainer,
         props: this.config

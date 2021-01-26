@@ -7,7 +7,6 @@
     "dev": "webpack-dev-server --mode development",
     "watch": "webpack --progress --colors --watch --mode development",
     "eslint": "eslint . --color",
-    "precommit": "lint-staged",
     "prettier:fix": "prettier --write .",
     "commit:dist": "git add --force --all dist && (git commit -m \"chore: update dist\" || exit 0)"
   },
