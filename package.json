@@ -9,7 +9,7 @@
     "eslint": "eslint . --color",
     "precommit": "lint-staged",
     "prettier:fix": "prettier --write .",
-    "commit:dist": "git add --force --all dist && (git commit -m 'chore: update dist' || exit 0)"
+    "commit:dist": "git add --force --all dist && (git commit -m \"chore: update dist\" || exit 0)"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
