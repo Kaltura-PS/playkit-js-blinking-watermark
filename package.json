@@ -5,17 +5,28 @@
   "scripts": {
     "build": "webpack --mode production",
     "dev": "webpack-dev-server --mode development",
-    "watch": "webpack --progress --colors --watch --mode development"
+    "watch": "webpack --progress --colors --watch --mode development",
+    "eslint": "eslint . --color",
+    "precommit": "lint-staged",
+    "prettier:fix": "prettier --write .",
+    "commit:dist": "git add --force --all dist && (git commit -m \"chore: update dist\" || exit 0)"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
     "@babel/plugin-proposal-class-properties": "^7.12.1",
     "@babel/plugin-transform-react-jsx": "^7.12.12",
     "@babel/preset-env": "^7.12.11",
+    "babel-eslint": "^10.1.0",
     "babel-loader": "^8.2.2",
     "cross-env": "^7.0.3",
     "css-loader": "^5.0.1",
+    "eslint": "^7.18.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-react": "^7.22.0",
     "kaltura-player-js": "https://github.com/kaltura/kaltura-player-js.git#v1.0.0",
+    "lint-staged": "^10.5.3",
+    "prettier": "^2.2.1",
     "style-loader": "^2.0.0",
     "webpack": "^5.17.0",
     "webpack-cli": "^3.3.12",
@@ -23,5 +34,35 @@
   },
   "peerDependencies": {
     "kaltura-player-js": "https://github.com/kaltura/kaltura-player-js.git#v1.0.0"
+  },
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "eslint --fix",
+      "git add"
+    ],
+    "*.{json,md,scss}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "keywords": [
+    "watermark",
+    "kaltura",
+    "player",
+    "playkit-js",
+    "playkit-js-blinking-watermark",
+    "html5 player"
+  ],
+  "license": "AGPL-3.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kaltura/playkit-js-blinking-watermark.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kaltura/playkit-js-blinking-watermark/issues"
+  },
+  "homepage": "https://github.com/kaltura/playkit-js-blinking-watermark#readme",
+  "kcc": {
+    "name": "playkit-blinking-watermark"
   }
 }
