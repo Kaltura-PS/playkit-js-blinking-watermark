@@ -60,7 +60,7 @@ const WatermarkContainer = props => {
 };
 
 // Monitor the player state
-const mapStateToProps = state => ({isPlaying: !!state.engine.playerState.currentState});
+const mapStateToProps = state => ({isPlaying: !state.engine.prePlayback});
 const WatermarkContainerWithState = connect(mapStateToProps)(WatermarkContainer);
 
 export {WatermarkContainerWithState as WatermarkContainer};
