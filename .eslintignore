@@ -1,1 +1,5 @@
-/dist
+dist/
+types/
+demo/
+webpack.config.js
+tsconfig.json

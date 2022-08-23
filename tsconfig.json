@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "target": "ES5",
+    "skipLibCheck": true,
+    "outDir": "dist",
+    "preserveSymlinks": true,
+    "jsx": "react",
+    "jsxFactory": "h",
+    "lib": ["es2015", "dom"],
+    "module": "commonjs",
+    "noImplicitReturns": true,
+    "pretty": true,
+    "strict": true,
+    "experimentalDecorators": true,
+    "paths": {
+      "*": ["../node_modules/*"]
+    },
+    "moduleResolution": "Node",
+    "types": ["node"]
+  },
+  "include": ["src/**/*.tsx", "src/**/*.ts", "node_modules/kaltura-player-js/ts-typed"]
+}

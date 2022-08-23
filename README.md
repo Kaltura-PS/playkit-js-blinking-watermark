@@ -76,6 +76,7 @@ yarn dev
 ## Configuration
 
 The plugin allows to configure the following parameters:
+
 - `text`, string - the text string to display on top of the player as a watermark. Default: `"watermarked"`.
   The common use-case is to display the name of the currently logged-in user.
 - `showEvery`, number - the interval of showing the watermark layer, in seconds. Default: `120` (which is 2 minutes).
