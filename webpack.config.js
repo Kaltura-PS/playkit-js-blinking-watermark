@@ -1,62 +1,67 @@
 'use strict';
 
-const webpack = require('webpack');
 const path = require('path');
-const packageData = require('./package.json');
 
-const plugins = [
-  new webpack.DefinePlugin({
-    __VERSION__: JSON.stringify(packageData.version),
-    __NAME__: JSON.stringify(packageData.name)
-  })
-];
-
-module.exports = {
-  context: path.resolve(__dirname, 'src'),
-  entry: {
-    'playkit-blinking-watermark': 'index.js'
-  },
-  output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: '[name].js',
-    library: ['KalturaPlayer', 'plugins', 'blinkingWatermark']
-  },
-  devtool: 'source-map',
-  plugins: plugins,
-  module: {
-    rules: [
-      {
-        test: /\.js$/,
-        use: [
-          {
-            loader: 'babel-loader'
-          }
-        ],
-        exclude: [/node_modules/]
-      },
-      {
-        test: /\.css$/,
-        use: [
-          {
-            loader: 'style-loader'
-          },
-          {
-            loader: 'css-loader',
-            options: {
-              modules: true
+module.exports = (env, { mode }) => {
+  return {
+    target: 'web',
+    entry: './src/index.ts',
+    optimization: {
+      minimize: mode !== 'development'
+    },
+    devtool: 'source-map',
+    module: {
+      rules: [
+        {
+          test: /\.tsx?$/,
+          loader: 'ts-loader',
+          options: { configFile: mode === 'development' ? 'tsconfig.dev.json' : 'tsconfig.json' },
+          exclude: /node_modules/
+        },
+        {
+          test: /\.scss/,
+          use: [
+            'style-loader',
+            {
+              loader: 'css-loader',
+              options: {
+                esModule: true,
+                modules: {
+                  localIdentName: '[local]_[hash:base64:5]',
+                  namedExport: true
+                }
+              }
+            },
+            {
+              loader: 'sass-loader',
+              options: {
+                sourceMap: mode === 'development'
+              }
             }
-          }
-        ]
+          ]
+        }
+      ]
+    },
+    resolve: {
+      extensions: ['.tsx', '.ts', '.js'],
+      modules: [path.resolve(__dirname, 'src'), 'node_modules']
+    },
+    output: {
+      filename: 'playkit-js-blinking-watermark.js',
+      path: path.resolve(__dirname, 'dist'),
+      clean: true
+    },
+    externals: {
+      'kaltura-player-js': 'root KalturaPlayer',
+      preact: 'root KalturaPlayer.ui.preact'
+    },
+    devServer: {
+      static: {
+        directory: path.join(__dirname, 'demo')
+      },
+      client: {
+        progress: true
       }
-    ]
-  },
-  devServer: {
-    contentBase: path.resolve(__dirname, 'src')
-  },
-  resolve: {
-    modules: [path.resolve(__dirname, 'src'), 'node_modules']
-  },
-  externals: {
-    'kaltura-player-js': ['KalturaPlayer']
-  }
+    }
+  };
 };
