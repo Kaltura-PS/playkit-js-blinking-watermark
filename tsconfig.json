@@ -1,23 +1,25 @@
 {
   "compilerOptions": {
-    "baseUrl": "./src",
     "target": "ES5",
-    "skipLibCheck": true,
-    "outDir": "dist",
+    "rootDir": ".",
+    "outDir": "build",
     "preserveSymlinks": true,
     "jsx": "react",
     "jsxFactory": "h",
-    "lib": ["es2015", "dom"],
+    "jsxFragmentFactory": "Fragment",
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "forceConsistentCasingInFileNames": true,
+    "lib": ["es2018"],
     "module": "commonjs",
+    "noEmitOnError": true,
+    "noFallthroughCasesInSwitch": true,
     "noImplicitReturns": true,
     "pretty": true,
     "strict": true,
     "experimentalDecorators": true,
-    "paths": {
-      "*": ["../node_modules/*"]
-    },
-    "moduleResolution": "Node",
-    "types": ["node"]
+    "downlevelIteration": true
   },
-  "include": ["src/**/*.tsx", "src/**/*.ts", "node_modules/kaltura-player-js/ts-typed"]
+  "include": ["src/**/*.ts", "test/**/*.ts"],
+  "exclude": ["node_modules"]
 }

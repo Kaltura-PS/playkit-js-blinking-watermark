@@ -2,9 +2,9 @@
 # https://docs.travis-ci.com/user/customizing-the-build/#Implementing-Complex-Build-Steps
 set -ev
 
-if [ "$TRAVIS_BRANCH" = "main" ] && [ "$TRAVIS_EVENT_TYPE" != "pull_request" ] && [[ ! "$TRAVIS_COMMIT_MESSAGE" =~ ^(chore).*(update dist)$ ]] && [[ ! "$TRAVIS_COMMIT_MESSAGE" =~ ^chore\(release\) ]]; then
+if [ "$TRAVIS_BRANCH" = "master" ] && [ "$TRAVIS_EVENT_TYPE" != "pull_request" ] && [[ ! "$TRAVIS_COMMIT_MESSAGE" =~ ^(chore).*(update dist)$ ]] && [[ ! "$TRAVIS_COMMIT_MESSAGE" =~ ^chore\(release\) ]]; then
   echo "Prepare Canary"
-  git checkout main
+  git checkout master
 fi
 
 yarn install
@@ -44,7 +44,7 @@ elif [ "${TRAVIS_MODE}" = "release" ] || [ "${TRAVIS_MODE}" = "releaseCanary" ];
     echo "update dist..."
     yarn run prepare:demo && yarn run commit:dist
     echo "Push dist to origin..."
-    git push -f https://$GH_TOKEN@github.com/Kaltura-PS/playkit-js-blinking-watermark "main"
+    git push -f https://$GH_TOKEN@github.com/Kaltura-PS/playkit-js-blinking-watermark "master"
   fi
 elif [ "${TRAVIS_MODE}" = "deploy" ]; then
   echo "Deploy..."
