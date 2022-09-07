@@ -3,6 +3,7 @@ import { useState, useEffect } from 'preact/hooks';
 import { PluginConfig } from '../../blinking-watermark';
 
 import * as styles from './WatermarkContainer.scss';
+import {ui} from "kaltura-player-js";
 
 interface Props {
   isPlaying: boolean;
@@ -63,6 +64,6 @@ const WatermarkContainer = (props: PluginConfig & Props): h.JSX.Element | null =
 const mapStateToProps = (state: any): { isPlaying: boolean } => {
   return { isPlaying: !state.engine.prePlayback };
 };
-const WatermarkContainerWithState = (KalturaPlayer.ui as any).redux.connect(mapStateToProps)(WatermarkContainer);
+const WatermarkContainerWithState = (ui as any).redux.connect(mapStateToProps)(WatermarkContainer);
 
 export { WatermarkContainerWithState as WatermarkContainer };

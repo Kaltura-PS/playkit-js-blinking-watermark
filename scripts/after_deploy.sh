@@ -14,7 +14,7 @@ echo "$currentVersion"
 
 TAGGED_BRANCH=$(git ls-remote origin | sed -n "\|$TRAVIS_COMMIT\s\+refs/heads/|{s///p}")
 UPDATE_SCHEMA=true
-if [ "$TAGGED_BRANCH" != "main" ]; then
+if [ "$TAGGED_BRANCH" != "master" ]; then
   UPDATE_SCHEMA=false
 fi
 
