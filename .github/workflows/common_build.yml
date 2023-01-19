@@ -1,0 +1,25 @@
+name: Deploy to QA
+
+on:
+  pull_request:
+    types: 
+      - closed
+  pull_request_review:
+    types: 
+      - submitted
+  
+jobs:
+   canary_build:
+    if: github.event_name == 'pull_request' && github.event.action == 'closed'
+    uses: kaltura/playkit-js-common/.github/workflows/build.yml@master
+    with:
+      pluginPath: playkit-blinking-watermark
+      prefix: canary
+    secrets: inherit
+   dev_build:
+    if: github.event.review.state == 'approved'
+    uses: kaltura/playkit-js-common/.github/workflows/build.yml@master
+    with:
+      pluginPath: playkit-blinking-watermark
+      prefix: dev
+    secrets: inherit
