@@ -11,7 +11,7 @@ export interface PluginConfig {
 
 export class BlinkingWatermark extends BasePlugin<PluginConfig> {
   protected static defaultConfig = {
-    duration: 3,
+    duration: 2,
     text: 'watermarked',
     showEvery: 3
   };
